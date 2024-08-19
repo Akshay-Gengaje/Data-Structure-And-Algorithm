@@ -4,10 +4,10 @@ This repository contains implementations and notes for various data structures a
 
 ## Table of Contents
 
-<table style="width:100%; border-collapse: collapse;">
-  <tr width="100%">
-    <th style="border: 1px solid black; padding: 8px; text-align: center;" width="30%">Directory</th>
-    <th style="border: 1px solid black; padding: 8px; text-align: center" width="70%">Description</th>
+<table style="width:100%;">
+  <tr>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" >Directory</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center" width="75%">Description</th>
   </tr>
   <tr>
     <td style="border: 1px solid black; padding: 8px;"><a href="./01.%20Data%20Structure%20Introduction">01. Data Structure Introduction</a></td>
