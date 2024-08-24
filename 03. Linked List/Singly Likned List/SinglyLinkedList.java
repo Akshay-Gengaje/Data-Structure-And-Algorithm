@@ -1,7 +1,7 @@
 public class SinglyLinkedList {
     private Node head; // Points to the first node in the list
     private Node tail; // Points to the last node in the list
-    private int size;  // Keeps track of the number of elements in the list
+    private int size; // Keeps track of the number of elements in the list
 
     public SinglyLinkedList() {
         this.size = 0;
@@ -9,8 +9,8 @@ public class SinglyLinkedList {
 
     // Node class representing each element in the linked list
     public class Node {
-        int value;   // The value stored in this node
-        Node next;   // The next node in the list
+        int value; // The value stored in this node
+        Node next; // The next node in the list
 
         public Node(int value) {
             this.value = value;
@@ -43,7 +43,7 @@ public class SinglyLinkedList {
             return;
         }
         tail.next = node; // Link the last node to the new node
-        tail = node;      // Update tail to the new node
+        tail = node; // Update tail to the new node
         size += 1;
     }
 
@@ -129,6 +129,19 @@ public class SinglyLinkedList {
             node = node.next;
         }
         return node;
+    }
+
+    // Find a node with a specific value in the list
+    // Time Complexity: O(n)
+    public Node find(int value) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.value == value) {
+                return temp; // Return the node if the value matches
+            }
+            temp = temp.next;
+        }
+        return null; // Return null if the value is not found
     }
 
     // Display the list
