@@ -1,69 +1,116 @@
-### Cyclic Sort: An In-Depth Explanation
+### **Cyclic Sort: In-Depth Explanation**
 
-**Cyclic Sort** is a sorting algorithm that is optimal for situations where the range of the elements to be sorted is known, and the elements are consecutive integers starting from `1` to `n`. The key idea is to place each element at its correct index in a cyclic manner. This makes Cyclic Sort an efficient algorithm for problems where you need to place elements in their correct positions.
+#### **What is Cyclic Sort?**
 
-#### **Algorithm**
+Cyclic Sort is an efficient sorting algorithm that works on the idea that the numbers should be placed in the correct indices in a single pass through the array. It is particularly effective when you have an array of consecutive numbers ranging from `1` to `n` with no duplicates. The algorithm sorts the array by iterating through it and swapping the elements to their correct positions until every element is in its right place.
 
-1. **Iterate through the array**: Start from the first element and check if the element at the current index `i` is in the correct position.
-2. **Correct Position Check**: The correct position for an element `x` (where elements are from `1` to `n`) is at index `x - 1`.
-3. **Swap if not in place**: If the element at index `i` is not in the correct position, swap it with the element that is currently at its correct position.
-4. **Move to the next index**: If the current element is in the correct position, move to the next index.
-5. **Repeat until all elements are sorted**: Continue this process until the entire array is sorted.
+#### **When to Use Cyclic Sort?**
 
-#### **Code Implementation in Java**
+- **Fixed Range of Elements**: It’s ideal when you know that the elements are in a fixed range, like `1` to `n`.
+- **No Duplicates**: The array should not have duplicate values, as Cyclic Sort doesn't handle duplicates.
+- **Efficient Sorting**: When you need to sort an array in O(n) time complexity without using extra space.
+
+#### **Why Use Cyclic Sort?**
+
+- **In-Place Sorting**: Cyclic Sort sorts the array without requiring additional storage, making it memory efficient.
+- **Optimal for Certain Scenarios**: It is particularly useful for problems where you need to find missing numbers, smallest missing positive numbers, etc., because it ensures elements are in their expected positions.
+
+### **Working of Cyclic Sort**
+
+1. **Initialization**:
+   
+   - Start from the first index.
+   - Calculate the correct index for the current element.
+
+2. **Swapping**:
+   
+   - If the element is not in its correct position, swap it with the element at its target position.
+
+3. **Repeat**:
+   
+   - Continue this process until every element is in its correct position.
+
+4. **Next Element**:
+   
+   - Move to the next element and repeat the above steps.
+
+5. **Termination**:
+   
+   - The loop continues until the end of the array.
+
+#### **Pseudocode for Cyclic Sort**
 
 ```java
-public class CyclicSort {
-    public static void cyclicSort(int[] arr) {
-        int i = 0;
-        while (i < arr.length) {
-            int correctIndex = arr[i] - 1;
-            if (arr[i] != arr[correctIndex]) {
-                // Swap arr[i] with arr[correctIndex]
-                int temp = arr[i];
-                arr[i] = arr[correctIndex];
-                arr[correctIndex] = temp;
-            } else {
-                i++;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {3, 5, 2, 1, 4};
-        cyclicSort(arr);
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+for (int i = 0; i < arr.length; i++) {
+    while (arr[i] != arr[arr[i] - 1]) {
+        swap(arr, i, arr[i] - 1);
     }
 }
 ```
 
-#### **Algorithm Explanation**
-
-1. **Initialize**: Start with the first element in the array.
-2. **Check Position**: For each element `arr[i]`, calculate its correct position as `arr[i] - 1`.
-3. **Swap**: If `arr[i]` is not in its correct position, swap it with the element at its correct position.
-4. **Repeat**: If `arr[i]` is in its correct position, move to the next element. Repeat the process until the entire array is sorted.
-
 #### **Time Complexity**
 
-- **Best Case**: \( O(n) \) – The algorithm performs `n` swaps at most, so it runs in linear time.
-- **Worst Case**: \( O(n) \) – Even in the worst case, it will only perform `n` swaps, maintaining linear time complexity.
-- **Space Complexity**: \( O(1) \) – The algorithm sorts the array in place without needing additional space.
+| **Operation**    | **Time Complexity** |
+| ---------------- | ------------------- |
+| **Best Case**    | O(n)                |
+| **Average Case** | O(n)                |
+| **Worst Case**   | O(n)                |
 
-#### **Pros and Cons**
+- **Space Complexity**: O(1) (In-Place Sorting)
 
-| **Pros**                                            | **Cons**                                                                 |
-| --------------------------------------------------- | ------------------------------------------------------------------------ |
-| Simple and easy to understand                       | Only works when elements are in a known range                            |
-| In-place sorting, so it uses constant space         | Not a general-purpose sorting algorithm                                  |
-| Efficient for problems like finding missing numbers | Can lead to infinite loops if the input is not within the expected range |
-| Runs in linear time \(O(n)\)                        | Can only be used when numbers are distinct and within the range 1 to n   |
+### **Cyclic Sort: Step-by-Step Diagram**
 
-#### **Use Cases**
+Let’s illustrate the working of Cyclic Sort with an example:
 
-- Finding missing numbers in an array of consecutive integers.
-- Sorting when the range of elements is known and continuous.
+**Example Array**: `[3, 5, 2, 1, 4]`
 
-Cyclic Sort is particularly useful in competitive programming when dealing with problems involving arrays of consecutive integers. It’s efficient and works in linear time with minimal space overhead, making it ideal for specific types of problems.
+1. **Initial Array**: `[3, 5, 2, 1, 4]`
+   
+   - **Current Index (i = 0)**: `3` is not in position `0`. Swap `3` with `arr[2]`.
+   - **Array after swap**: `[2, 5, 3, 1, 4]`
+
+2. **Current Index (i = 0)**: `2` is not in position `0`. Swap `2` with `arr[1]`.
+   
+   - **Array after swap**: `[5, 2, 3, 1, 4]`
+
+3. **Current Index (i = 0)**: `5` is not in position `0`. Swap `5` with `arr[4]`.
+   
+   - **Array after swap**: `[4, 2, 3, 1, 5]`
+
+4. **Current Index (i = 0)**: `4` is not in position `0`. Swap `4` with `arr[3]`.
+   
+   - **Array after swap**: `[1, 2, 3, 4, 5]`
+
+5. **Current Index (i = 0)**: `1` is now in position `0`.
+   
+   - Move to the next index.
+
+6. **Next Iterations**: 
+   
+   - All elements are now in their correct positions.
+
+**Final Sorted Array**: `[1, 2, 3, 4, 5]`
+
+### **Flow Diagram of Cyclic Sort**
+
+1. **Initialization**:
+   
+   - Start with an unsorted array.
+
+2. **Position Calculation**:
+   
+   - Determine the correct index for the current element.
+
+3. **Swapping**:
+   
+   - If the element is not in the correct position, swap it.
+
+4. **Repeat**:
+   
+   - Continue until all elements are correctly positioned.
+
+5. **Termination**:
+   
+   - The array is sorted.
+
+
