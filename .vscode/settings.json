@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "09. Sorting/Selection Sort",
+        "09. Sorting/Insertion Sort",
+        "09. Sorting/Cyclic Sort",
+        "09. Sorting/Bubble Sort",
+        "03. Linked List/Doubly Linked List",
+        "10. Recursion/Fibonacci Number"
+    ]
+}
