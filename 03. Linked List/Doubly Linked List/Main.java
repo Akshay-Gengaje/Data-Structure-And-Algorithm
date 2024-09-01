@@ -6,6 +6,7 @@ public class Main {
         dl.insertFirst(3);
         dl.insertFirst(2);
         dl.insertFirst(1);
-        dl.display();
+        dl.insertLast(6);
+        dl.printForward();
     }
 }
