@@ -5,7 +5,7 @@ public class DoublyLinkedList {
         Node node = new Node(val);
         node.next = head;
         if (head != null) {
-            head.prev = null;
+            head.prev = node;
         }
         head = node;
     }
@@ -28,20 +28,46 @@ public class DoublyLinkedList {
         node.prev = last;
     }
 
+    public void insertAfter(int after, int val) {
+        Node p = find(after);
+        if (p == null) {
+            System.out.println("Does not exist!");
+            return;
+        }
+        Node newNode = new Node(val);
+        newNode.prev = p;
+        newNode.next = p.next;
+        if (newNode.next != null) {
+            p.next.prev = newNode;
+        }
+        p.next = newNode;
+    }
+
+    public Node find(int val) {
+        Node node = head;
+        while (node != null) {
+            if (node.value == val) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
     public void printForward() {
         Node node = head;
         while (node != null) {
             System.out.print(node.value + " -> ");
             node = node.next;
         }
-        System.out.print("END");
+        System.out.print("END \n");
     }
 
     public void printBackward() {
         if (head == null)
             return;
         Node last = head;
-        while (last != null) {
+        while (last.next != null) {
             last = last.next;
         }
         while (last != null) {
