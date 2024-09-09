@@ -5,8 +5,9 @@
         "09. Sorting/Insertion Sort",
         "09. Sorting/Cyclic Sort",
         "09. Sorting/Bubble Sort",
+        "05. Queue/Inbuilt DS",
         "04. Stack/Inbuild DS",
         "03. Linked List/Doubly Linked List",
-        "05. Queue/Inbuilt DS"
+        "04. Stack/Custom Implementation/com/stack"
     ]
 }
