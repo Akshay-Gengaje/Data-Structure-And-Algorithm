@@ -37,11 +37,11 @@ public class CustomStack {
         return this.data[ptr];
     }
 
-    private boolean isFull() {
+    public boolean isFull() {
         return ptr == this.data.length - 1;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return ptr == -1;
     }
 

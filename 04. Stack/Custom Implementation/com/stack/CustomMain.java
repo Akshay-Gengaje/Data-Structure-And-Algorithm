@@ -1,4 +1,4 @@
-public class Main {
+public class CustomMain {
     public static void main(String[] args) throws StackException {
         CustomStack stack = new CustomStack(5);
         stack.push(4);
