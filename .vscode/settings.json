@@ -6,9 +6,10 @@
         "09. Sorting/Cyclic Sort",
         "09. Sorting/Bubble Sort",
         "05. Queue/Inbuilt DS",
+        "05. Queue/Custom Queue",
         "04. Stack/Inbuild DS",
         "04. Stack/Custom Implementation/com/stack",
         "03. Linked List/Doubly Linked List",
-        "05. Queue/Custom Queue"
+        "05. Queue/Circular Queue"
     ]
 }
